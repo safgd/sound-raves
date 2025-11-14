@@ -15,6 +15,10 @@ run/main_scene="uid://bfgcylsbp0md4"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioManager="*res://Scenes/audio_manager.tscn"
+
 [layer_names]
 
 3d_render/layer_4="Layer 4"

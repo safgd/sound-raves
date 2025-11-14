@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_velocity
+		AudioManager.play_jump_sound()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -48,9 +49,11 @@ func _physics_process(delta: float) -> void:
 		invulnerability_timer.start()
 		
 func hurt_player(damage: int = 1):
+	AudioManager.play_damaged_sound()
 	damaged.emit()
 	current_health -= damage
 	if current_health <= 0:
+		AudioManager.play_loose_sound()
 		get_tree().call_deferred("reload_current_scene")
 
 func heal_player(ammount: int = 1):
