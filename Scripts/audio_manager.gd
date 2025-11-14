@@ -1,5 +1,7 @@
 extends Node
 
+@export var step_audio_streams: Array[AudioStream]
+
 func play_jump_sound():
 	$"Jump Sound Player".play()
 
@@ -11,3 +13,9 @@ func play_loose_sound():
 
 func play_coin_sound():
 	$"Coin Sound Player".play()
+
+func play_step_sound():
+	if step_audio_streams.size() > 0:
+		$"Step Sound Player".stop()
+		$"Step Sound Player".stream = step_audio_streams[randi() % step_audio_streams.size()]
+		$"Step Sound Player".play()

@@ -1,14 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://xf0jmhlvbnap"]
+[gd_scene load_steps=14 format=3 uid="uid://xf0jmhlvbnap"]
 
 [ext_resource type="Script" uid="uid://dxf2y48xbk06" path="res://Scripts/audio_manager.gd" id="1_sm2tf"]
+[ext_resource type="AudioStream" uid="uid://c10walrle8ke2" path="res://Assets/Sounds/Steps/Shoe Step Wood Hard A.wav" id="2_fasow"]
 [ext_resource type="AudioStream" uid="uid://bnklhh7x82kur" path="res://Assets/Sounds/Electronic Vol6 Electric Main.wav" id="2_hhwve"]
+[ext_resource type="AudioStream" uid="uid://ch3uperlh2t5" path="res://Assets/Sounds/Steps/Shoe Step Wood Hard B.wav" id="3_1bal0"]
 [ext_resource type="AudioStream" uid="uid://bc485gkw7ocik" path="res://Assets/Sounds/Whoosh Fast B.wav" id="3_qixve"]
 [ext_resource type="AudioStream" uid="uid://pjuly2owpogq" path="res://Assets/Sounds/Cyber Blade 001.wav" id="4_qixve"]
+[ext_resource type="AudioStream" uid="uid://djgoyf3iqv0dr" path="res://Assets/Sounds/Steps/Shoe Step Wood Hard C.wav" id="4_vhwx7"]
 [ext_resource type="AudioStream" uid="uid://d2lc8dlk1r1n1" path="res://Assets/Sounds/Roboroar 006.wav" id="5_0hehx"]
+[ext_resource type="AudioStream" uid="uid://bbrb151ojubiu" path="res://Assets/Sounds/Steps/Shoe Step Wood Hard D.wav" id="5_bkjj7"]
+[ext_resource type="AudioStream" uid="uid://cum34dmli4csm" path="res://Assets/Sounds/Steps/Shoe Step Wood Hard E.wav" id="6_dv115"]
 [ext_resource type="AudioStream" uid="uid://ooicekh6yw5p" path="res://Assets/Sounds/Inventory.wav" id="6_mjqhu"]
+[ext_resource type="AudioStream" uid="uid://xa4ftfr2eh74" path="res://Assets/Sounds/Steps/Shoe Step Wood Medium A.wav" id="7_tesok"]
+[ext_resource type="AudioStream" uid="uid://dfo6iiofjrqpu" path="res://Assets/Sounds/Steps/Shoe Step Wood Medium B.wav" id="8_s7ae5"]
 
 [node name="Audio Manager" type="Node"]
 script = ExtResource("1_sm2tf")
+step_audio_streams = Array[AudioStream]([ExtResource("2_fasow"), ExtResource("3_1bal0"), ExtResource("4_vhwx7"), ExtResource("5_bkjj7"), ExtResource("6_dv115"), ExtResource("7_tesok"), ExtResource("8_s7ae5")])
 
 [node name="Music Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_hhwve")
@@ -27,3 +35,5 @@ stream = ExtResource("5_0hehx")
 
 [node name="Coin Sound Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_mjqhu")
+
+[node name="Step Sound Player" type="AudioStreamPlayer" parent="."]

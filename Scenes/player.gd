@@ -91,3 +91,4 @@ func shake_player_mesh(factor: float = 1.0):
 func _on_steps_timer_timeout() -> void:
 	if is_on_floor() and Vector3(velocity.x, 0.0, velocity.z).length() > 0.0:
 		shake_player_mesh()
+		AudioManager.play_step_sound()
