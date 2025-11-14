@@ -6,7 +6,7 @@ extends StaticBody3D
 @export var shock_wave_scene: PackedScene
 
 func _ready() -> void:
-	if initial_wait_time == 0.0:
+	if initial_wait_time <= 0.0:
 		spawn_shock_wave()
 	else:
 		$"Repating Shock Wave Timer".stop()
