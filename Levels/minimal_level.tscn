@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://bu6m3301lp172"]
+
+[ext_resource type="Texture2D" uid="uid://bf1crmwxkea0i" path="res://icon.svg" id="1_q8wh3"]
+[ext_resource type="Script" uid="uid://c585lcncn0kje" path="res://default_movement.gd" id="3_f4bx3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e5tdl"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_0qxm3"]
+sky_material = SubResource("ProceduralSkyMaterial_e5tdl")
+
+[sub_resource type="Environment" id="Environment_w6c1v"]
+background_mode = 2
+sky = SubResource("Sky_0qxm3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8cbvm"]
+albedo_texture = ExtResource("1_q8wh3")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fsn3e"]
+material = SubResource("StandardMaterial3D_8cbvm")
+size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2mfxu"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="SphereMesh" id="SphereMesh_q8wh3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8dpu8"]
+
+[node name="Minimal Level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_w6c1v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("PlaneMesh_fsn3e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_2mfxu")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8645835, 0)
+script = ExtResource("3_f4bx3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("SphereMesh_q8wh3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("SphereShape3D_8dpu8")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3470855, 3.1266847)

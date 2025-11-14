@@ -15,6 +15,7 @@ height = 1.0
 
 [node name="Shock Wave Spawner" type="StaticBody3D"]
 script = ExtResource("1_5a1a6")
+initial_wait_time = 3.0
 shock_wave_scene = ExtResource("2_u1nf7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

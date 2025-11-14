@@ -65,11 +65,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
 [node name="Shock Wave Spawner2" parent="." instance=ExtResource("3_dc6q1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6)
-initial_wait_time = 1.0
 
 [node name="Shock Wave Spawner3" parent="." instance=ExtResource("3_dc6q1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
-initial_wait_time = 1.0
 
 [node name="UI" parent="." instance=ExtResource("5_d6kn1")]
 
