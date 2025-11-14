@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm2aqjkuntn0h"]
+
+[ext_resource type="Script" uid="uid://baijmv0piok2n" path="res://Scripts/ui.gd" id="1_jxero"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jxero"]
+font_size = 40
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_jxero")
+
+[node name="FPS Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0 fps"
+label_settings = SubResource("LabelSettings_jxero")
