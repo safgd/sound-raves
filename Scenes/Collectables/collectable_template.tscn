@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkxqiqx5donj0"]
+
+[ext_resource type="Script" uid="uid://csq7i3wq1u61n" path="res://Scripts/collectable.gd" id="1_vrrj0"]
+
+[node name="Collectable Template" type="Area3D"]
+script = ExtResource("1_vrrj0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

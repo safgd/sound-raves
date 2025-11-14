@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://xf0jmhlvbnap"]
+[gd_scene load_steps=7 format=3 uid="uid://xf0jmhlvbnap"]
 
 [ext_resource type="Script" uid="uid://dxf2y48xbk06" path="res://Scripts/audio_manager.gd" id="1_sm2tf"]
 [ext_resource type="AudioStream" uid="uid://bnklhh7x82kur" path="res://Assets/Sounds/Electronic Vol6 Electric Main.wav" id="2_hhwve"]
 [ext_resource type="AudioStream" uid="uid://bc485gkw7ocik" path="res://Assets/Sounds/Whoosh Fast B.wav" id="3_qixve"]
 [ext_resource type="AudioStream" uid="uid://pjuly2owpogq" path="res://Assets/Sounds/Cyber Blade 001.wav" id="4_qixve"]
 [ext_resource type="AudioStream" uid="uid://d2lc8dlk1r1n1" path="res://Assets/Sounds/Roboroar 006.wav" id="5_0hehx"]
+[ext_resource type="AudioStream" uid="uid://ooicekh6yw5p" path="res://Assets/Sounds/Inventory.wav" id="6_mjqhu"]
 
 [node name="Audio Manager" type="Node"]
 script = ExtResource("1_sm2tf")
@@ -23,3 +24,6 @@ volume_db = -10.0
 
 [node name="Loose Sound Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_0hehx")
+
+[node name="Coin Sound Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mjqhu")

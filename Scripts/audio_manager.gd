@@ -8,3 +8,6 @@ func play_damaged_sound():
 
 func play_loose_sound():
 	$"Loose Sound Player".play()
+
+func play_coin_sound():
+	$"Coin Sound Player".play()

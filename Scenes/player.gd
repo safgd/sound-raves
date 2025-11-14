@@ -64,3 +64,6 @@ func _on_shockwave_entered(_body: Node3D) -> void:
 
 func _on_shockwave_exited(_body: Node3D) -> void:
 	touching_shockwave = false
+
+func get_collected(type: Collectable.Type):
+	print(str(type)+" got collected")

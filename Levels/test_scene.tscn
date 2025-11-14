@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bfgcylsbp0md4"]
+[gd_scene load_steps=13 format=3 uid="uid://bfgcylsbp0md4"]
 
 [ext_resource type="Texture2D" uid="uid://bf1crmwxkea0i" path="res://icon.svg" id="1_abhxl"]
 [ext_resource type="PackedScene" uid="uid://dluav450y5end" path="res://Scenes/player.tscn" id="2_g54tn"]
 [ext_resource type="PackedScene" uid="uid://ba1lhlowv02v7" path="res://Scenes/shock_wave_spawner.tscn" id="3_dc6q1"]
 [ext_resource type="Script" uid="uid://ceyhd1uym23s1" path="res://Scripts/camera.gd" id="3_q5m1e"]
 [ext_resource type="PackedScene" uid="uid://cm2aqjkuntn0h" path="res://Scenes/ui.tscn" id="5_d6kn1"]
+[ext_resource type="PackedScene" uid="uid://wiv3mxvsbb5f" path="res://Scenes/Collectables/coin_collectable.tscn" id="6_u6qdh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g54tn"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -68,5 +69,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
 
 [node name="UI" parent="." instance=ExtResource("5_d6kn1")]
+
+[node name="Coin Collectable" parent="." instance=ExtResource("6_u6qdh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -3)
+
+[node name="Coin Collectable2" parent="." instance=ExtResource("6_u6qdh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -3)
+
+[node name="Coin Collectable3" parent="." instance=ExtResource("6_u6qdh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6)
 
 [connection signal="damaged" from="Player" to="Player/Camera3D" method="shake"]
