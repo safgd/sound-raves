@@ -1,10 +1,15 @@
+class_name Ground
 extends StaticBody3D
 
 @export var random_colors: Array[Color]
+@export var marking_color: Color = Color(1.0, 1.0, 1.0, 1.0)
+@export var marked_duration: float = 0.3
 @export var mesh: Mesh
 @export var width: int = 18
 # Called when the node enters the scene tree for the first time.
 var multimesh: MultiMesh
+
+var marked_tiles: Dictionary[int, Timer] = {}
 
 func _ready():
 	
@@ -38,6 +43,28 @@ func _ready():
 
 func change_tile_color():
 	for i in range(width*width):
-		var color: Color = random_colors[randi() % random_colors.size()]
-		multimesh.set_instance_color(i, color)
-	
+		if not marked_tiles.has(i):
+			var color: Color = random_colors[randi() % random_colors.size()]
+			multimesh.set_instance_color(i, color)
+
+func overwrite_tile_color(pos: Vector3):
+	var x: int = floor(pos.x + 0.5 + width/2.0)
+	var z: int = floor(pos.z + 0.5 + width/2.0)
+	var i: int = x * width + z
+	multimesh.set_instance_color(i, marking_color)
+	if marked_tiles.has(i):
+		marked_tiles[i].stop()
+		marked_tiles[i].start()
+	else:
+		var timer: Timer = Timer.new()
+		timer.name = "Timer " + str(i)
+		add_child(timer)
+		timer.wait_time = marked_duration
+		timer.start()
+		timer.timeout.connect(_on_marked_tile_timer_timeout.bind(i))
+		marked_tiles[i] = timer
+
+func _on_marked_tile_timer_timeout(i: int):
+	var timer: Timer = marked_tiles[i]
+	marked_tiles.erase(i)
+	timer.call_deferred("queue_free")

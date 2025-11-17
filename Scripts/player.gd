@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 signal damaged
 
+@export_category("Stats")
 @export var max_health: int = 3
 @export var speed = 5.0
 @export var jump_velocity = 4.5
@@ -11,6 +12,10 @@ signal damaged
 @export_category("Game Juice")
 @export var shake_ammount: float = 0.2
 @export var shake_duration: float = 0.2
+
+@export_category("Setup")
+@export var ground: Ground
+
 var original_scale: Vector3
 
 var current_health: int
@@ -32,6 +37,8 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		ground.overwrite_tile_color(global_position)
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
