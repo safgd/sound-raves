@@ -37,3 +37,9 @@ stream = ExtResource("5_0hehx")
 stream = ExtResource("6_mjqhu")
 
 [node name="Step Sound Player" type="AudioStreamPlayer" parent="."]
+
+[node name="World Tick" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="World Tick" to="." method="_on_world_tick_timeout"]

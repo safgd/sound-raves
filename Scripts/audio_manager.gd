@@ -1,5 +1,7 @@
 extends Node
 
+signal audio_tick
+
 @export var step_audio_streams: Array[AudioStream]
 
 func play_jump_sound():
@@ -19,3 +21,7 @@ func play_step_sound():
 		$"Step Sound Player".stop()
 		$"Step Sound Player".stream = step_audio_streams[randi() % step_audio_streams.size()]
 		$"Step Sound Player".play()
+
+
+func _on_world_tick_timeout() -> void:
+	audio_tick.emit()

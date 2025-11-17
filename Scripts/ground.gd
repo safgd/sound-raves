@@ -8,6 +8,8 @@ var multimesh: MultiMesh
 
 func _ready():
 	
+	AudioManager.audio_tick.connect(change_tile_color)
+	
 	# MultiMesh erstellen
 	multimesh = MultiMesh.new()
 	multimesh.use_colors = true
@@ -39,7 +41,3 @@ func change_tile_color():
 		var color: Color = random_colors[randi() % random_colors.size()]
 		multimesh.set_instance_color(i, color)
 	
-
-
-func _on_timer_timeout() -> void:
-	change_tile_color()

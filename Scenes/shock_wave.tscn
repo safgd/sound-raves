@@ -1,17 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://cejxqbneuohe0"]
+[gd_scene load_steps=3 format=3 uid="uid://cejxqbneuohe0"]
 
 [ext_resource type="Script" uid="uid://dv8eb22pubcty" path="res://Scripts/shock_wave.gd" id="1_60xfj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ltmge"]
 
 [node name="Shock Wave" type="Node3D"]
 script = ExtResource("1_60xfj")
 ring_growth = 0.6
+random_colors = Array[Color]([Color(3.657937e-06, 0.8842119, 0.5454691, 1), Color(0.9999835, 0.13564709, 0.44308364, 1), Color(0.772041, 0.7265799, 0, 1), Color(0, 0.6216101, 0.94955117, 1), Color(0.64869463, 0.38579282, 0.99999064, 1)])
 
 [node name="CSGTorus" type="CSGTorus3D" parent="."]
 use_collision = true
 collision_layer = 8
 collision_mask = 16
-outer_radius = 0.7
+outer_radius = 1.2
 sides = 12
+material = SubResource("StandardMaterial3D_ltmge")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 16.0

@@ -19,6 +19,7 @@ sky_material = SubResource("ProceduralSkyMaterial_g54tn")
 background_mode = 2
 sky = SubResource("Sky_dc6q1")
 tonemap_mode = 2
+tonemap_white = 3.89
 glow_enabled = true
 
 [node name="Test Scene" type="Node3D"]
@@ -27,8 +28,12 @@ glow_enabled = true
 environment = SubResource("Environment_q5m1e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.91539913, -0.40254143, 0.0021913988, 0.078141466, -0.17235205, 0.9819311, -0.39489028, 0.8990301, 0.1892261, 0, 4.0556674, 0)
+light_energy = 3.023
 shadow_enabled = true
+
+[node name="Ground" parent="." instance=ExtResource("2_dfwtf")]
+width = 100
 
 [node name="Player" parent="." instance=ExtResource("2_g54tn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -39,16 +44,18 @@ script = ExtResource("3_q5m1e")
 shake_ammount = 0.1
 shake_duration = 0.05
 
-[node name="Shock Wave Spawner" parent="." instance=ExtResource("3_dc6q1")]
+[node name="UI" parent="." instance=ExtResource("5_d6kn1")]
+
+[node name="Schock Wave Spawners" type="Node3D" parent="."]
+
+[node name="Shock Wave Spawner" parent="Schock Wave Spawners" instance=ExtResource("3_dc6q1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
-[node name="Shock Wave Spawner2" parent="." instance=ExtResource("3_dc6q1")]
+[node name="Shock Wave Spawner2" parent="Schock Wave Spawners" instance=ExtResource("3_dc6q1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6)
 
-[node name="Shock Wave Spawner3" parent="." instance=ExtResource("3_dc6q1")]
+[node name="Shock Wave Spawner3" parent="Schock Wave Spawners" instance=ExtResource("3_dc6q1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
-
-[node name="UI" parent="." instance=ExtResource("5_d6kn1")]
 
 [node name="Collectables Spawner" parent="." node_paths=PackedStringArray("spawn_positions") instance=ExtResource("6_qps05")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -64,8 +71,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9226742)
 
 [node name="Node3D3" type="Node3D" parent="Collectables Spawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5941858, 0, -3.1543374)
-
-[node name="Ground" parent="." instance=ExtResource("2_dfwtf")]
-width = 100
 
 [connection signal="damaged" from="Player" to="Player/Camera3D" method="shake"]
