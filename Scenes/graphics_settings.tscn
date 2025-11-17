@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://kxgp2ljh50m4"]
+
+[ext_resource type="Script" uid="uid://cmjpvnc0kvtjx" path="res://Scripts/graphics_settings.gd" id="1_o8idn"]
+
+[node name="Graphics Settings" type="Node"]
+script = ExtResource("1_o8idn")
