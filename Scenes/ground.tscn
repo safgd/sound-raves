@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://clygl7b02goqu"]
+
+[ext_resource type="Script" uid="uid://cjm4fw2ucy81" path="res://Scripts/ground.gd" id="1_02qk3"]
+[ext_resource type="BoxMesh" uid="uid://bmbj1nqatyiqr" path="res://Assets/Meshes/floor_tile.tres" id="3_s6h8e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oltiy"]
+size = Vector3(18, 1, 18)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_688p1"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oltiy"]
+material = SubResource("StandardMaterial3D_688p1")
+size = Vector2(18, 18)
+
+[node name="Ground" type="StaticBody3D"]
+script = ExtResource("1_02qk3")
+random_colors = Array[Color]([Color(3.657937e-06, 0.8842119, 0.5454691, 1), Color(0.9999835, 0.13564709, 0.44308364, 1), Color(0.772041, 0.7265799, 0, 1), Color(0, 0.6216101, 0.94955117, 1), Color(0.64869463, 0.38579282, 0.99999064, 1)])
+mesh = ExtResource("3_s6h8e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, -0.5)
+shape = SubResource("BoxShape3D_oltiy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("PlaneMesh_oltiy")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

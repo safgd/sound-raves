@@ -24,3 +24,10 @@ AudioManager="*res://Scenes/audio_manager.tscn"
 3d_render/layer_4="Layer 4"
 3d_physics/layer_4="Shockwave"
 3d_physics/layer_5="Shockwave Detector"
+
+[rendering]
+
+anti_aliasing/quality/msaa_2d=3
+anti_aliasing/quality/msaa_3d=3
+anti_aliasing/quality/screen_space_aa=2
+anti_aliasing/quality/use_taa=true
