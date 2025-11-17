@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxa0mbhdobsqs"]
+
+[ext_resource type="Script" uid="uid://ue87ip6bjmxy" path="res://Scripts/Menus/credits_menu.gd" id="1_34gl1"]
+[ext_resource type="LabelSettings" uid="uid://bhvd5ckquyxa5" path="res://Assets/Label Settings/titels.tres" id="2_8o61d"]
+[ext_resource type="LabelSettings" uid="uid://b0sglvygqa8vf" path="res://Assets/Label Settings/normal_text.tres" id="3_flhbk"]
+
+[node name="Credits Menu" type="CanvasLayer"]
+script = ExtResource("1_34gl1")
+home_screen_scene_path = "res://Scenes/Menus/home_menu.tscn"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -199.0
+offset_right = 83.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Thanks for playing!"
+label_settings = ExtResource("2_8o61d")
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "This game was made by me"
+label_settings = ExtResource("3_flhbk")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "With the Godot Engine"
+label_settings = ExtResource("3_flhbk")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Music is from Ovani"
+label_settings = ExtResource("3_flhbk")
+horizontal_alignment = 1
+
+[node name="Return Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Return"
+
+[connection signal="pressed" from="VBoxContainer/Return Button" to="." method="_on_return_button_pressed"]

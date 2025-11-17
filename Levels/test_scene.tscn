@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfgcylsbp0md4"]
+[gd_scene load_steps=12 format=3 uid="uid://bfgcylsbp0md4"]
 
 [ext_resource type="PackedScene" uid="uid://clygl7b02goqu" path="res://Scenes/ground.tscn" id="2_dfwtf"]
 [ext_resource type="PackedScene" uid="uid://dluav450y5end" path="res://Scenes/player.tscn" id="2_g54tn"]
 [ext_resource type="PackedScene" uid="uid://ba1lhlowv02v7" path="res://Scenes/shock_wave_spawner.tscn" id="3_dc6q1"]
 [ext_resource type="Script" uid="uid://ceyhd1uym23s1" path="res://Scripts/camera.gd" id="3_q5m1e"]
 [ext_resource type="PackedScene" uid="uid://cm2aqjkuntn0h" path="res://Scenes/ui.tscn" id="5_d6kn1"]
+[ext_resource type="PackedScene" uid="uid://csl17lkggtans" path="res://Scenes/Menus/pause_menu.tscn" id="5_dfwtf"]
 [ext_resource type="PackedScene" uid="uid://bny32rhm63jma" path="res://Scenes/Collectables/collectables_spawner.tscn" id="6_qps05"]
 [ext_resource type="PackedScene" uid="uid://wiv3mxvsbb5f" path="res://Scenes/Collectables/coin_collectable.tscn" id="6_u6qdh"]
 
@@ -44,7 +45,10 @@ script = ExtResource("3_q5m1e")
 shake_ammount = 0.1
 shake_duration = 0.05
 
-[node name="UI" parent="." instance=ExtResource("5_d6kn1")]
+[node name="Game UI" parent="." instance=ExtResource("5_d6kn1")]
+
+[node name="Pause Menu" parent="." instance=ExtResource("5_dfwtf")]
+visible = false
 
 [node name="Schock Wave Spawners" type="Node3D" parent="."]
 
