@@ -4,6 +4,7 @@ signal damaged
 
 @export_category("Stats")
 @export var max_health: int = 3
+@export var start_health: int = -1
 @export var speed = 5.0
 @export var jump_velocity = 4.5
 @export var orientation_speed: float = 20.0
@@ -43,7 +44,10 @@ var touching_shockwave: bool = false:
 		return touching_shockwave
 
 func _ready() -> void:
-	current_health = max_health
+	if start_health > 0:
+		current_health = start_health
+	else:
+		current_health = max_health
 	original_scale = $MeshInstance3D.scale
 
 func _physics_process(delta: float) -> void:

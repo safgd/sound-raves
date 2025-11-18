@@ -100,8 +100,9 @@ func overwrite_tile_color(pos: Vector3):
 				
 				if marked_tiles.size() <= 0:
 					print("won")
-					$"../UI/Pause Menu"._on_home_button_pressed()
-					get_tree().paused = true
+					$"..".win_condition_fulfilled()
+					#$"../UI/Pause Menu"._on_home_button_pressed()
+					#get_tree().paused = true
 			else:
 				pass
 	
