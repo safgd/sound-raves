@@ -94,8 +94,14 @@ func overwrite_tile_color(pos: Vector3):
 		Mode.ACTIVATING:
 			if marked_tiles.has(i):
 				marked_tiles.erase(i)
+				
+				var color: Color = random_colors[randi() % random_colors.size()]
+				multimesh.set_instance_color(i, color)
+				
 				if marked_tiles.size() <= 0:
 					print("won")
+					$"../UI/Pause Menu"._on_home_button_pressed()
+					get_tree().paused = true
 			else:
 				pass
 	

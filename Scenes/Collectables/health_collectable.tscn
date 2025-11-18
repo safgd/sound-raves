@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cheeey5c78fnh"]
+
+[ext_resource type="PackedScene" uid="uid://dkxqiqx5donj0" path="res://Scenes/Collectables/collectable_template.tscn" id="1_sroon"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sroon"]
+albedo_color = Color(0.7217123, 5.631298e-06, 0.29105645, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_76och"]
+material = SubResource("StandardMaterial3D_sroon")
+radius = 0.25
+height = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v25i7"]
+radius = 0.29761028
+
+[node name="Health Collectable" instance=ExtResource("1_sroon")]
+type = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0"]
+mesh = SubResource("SphereMesh_76och")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("SphereShape3D_v25i7")

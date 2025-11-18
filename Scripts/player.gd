@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	else:
+	elif ground:
 		ground.overwrite_tile_color(global_position)
 
 	# Handle jump.
@@ -105,6 +105,8 @@ func get_collected(type: Collectable.Type):
 	match type:
 		Collectable.Type.COIN:
 			coin_count += 1
+		Collectable.Type.HEALTH:
+			heal_player(1)
 
 func shake_player_mesh(factor: float = 1.0):
 	var mesh: MeshInstance3D = $MeshInstance3D

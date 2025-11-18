@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://34ghhubsewig"]
+
+[ext_resource type="Texture2D" uid="uid://bf1crmwxkea0i" path="res://icon.svg" id="1_yyfnp"]
+[ext_resource type="PackedScene" uid="uid://cm2aqjkuntn0h" path="res://Scenes/game_ui.tscn" id="2_5chmu"]
+[ext_resource type="PackedScene" uid="uid://csl17lkggtans" path="res://Scenes/Menus/pause_menu.tscn" id="3_f3jub"]
+[ext_resource type="PackedScene" uid="uid://dluav450y5end" path="res://Scenes/player.tscn" id="4_uril1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lj037"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_7fna7"]
+sky_material = SubResource("ProceduralSkyMaterial_lj037")
+
+[sub_resource type="Environment" id="Environment_27uoq"]
+background_mode = 2
+sky = SubResource("Sky_7fna7")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wx043"]
+albedo_texture = ExtResource("1_yyfnp")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_drxpg"]
+material = SubResource("StandardMaterial3D_wx043")
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uerhw"]
+size = Vector3(50, 1, 50)
+
+[node name="World Hub" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_27uoq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_drxpg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_uerhw")
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Game UI" parent="UI" instance=ExtResource("2_5chmu")]
+hide_gameplay_ui = true
+
+[node name="Pause Menu" parent="UI" instance=ExtResource("3_f3jub")]
+visible = false
+
+[node name="Player" parent="." node_paths=PackedStringArray("game_ui") instance=ExtResource("4_uril1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+game_ui = NodePath("../UI/Game UI")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.9183497, 0.39576992, 0, -0.39576992, 0.9183497, 0, 2.883587, 4.1300955)
