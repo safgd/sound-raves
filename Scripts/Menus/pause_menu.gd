@@ -1,6 +1,7 @@
 class_name Pause_Menu
 extends CanvasLayer
 
+@export var hub_world_scene_path: String
 @export var home_screen_scene_path: String
 
 func _ready() -> void:
@@ -22,6 +23,11 @@ func _on_unpause_button_pressed() -> void:
 	get_tree().paused = false
 	visible = false
 
-func _on_home_button_pressed() -> void:
+func _on_hub_world_button_pressed() -> void:
+	get_tree().paused = false
+	visible = false
+	get_tree().call_deferred("change_scene_to_file", hub_world_scene_path)
+
+func _on_home_screen_button_pressed() -> void:
 	visible = false
 	get_tree().call_deferred("change_scene_to_file", home_screen_scene_path)
