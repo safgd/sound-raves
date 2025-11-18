@@ -34,7 +34,8 @@ light_energy = 3.023
 shadow_enabled = true
 
 [node name="Ground" parent="." instance=ExtResource("2_dfwtf")]
-width = 14
+width = 6
+colored_borders = false
 
 [node name="UI" type="Node" parent="."]
 

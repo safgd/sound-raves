@@ -21,23 +21,29 @@ offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Thanks for playing!"
 label_settings = ExtResource("2_8o61d")
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="Empty Label 1" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 label_settings = ExtResource("3_flhbk")
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer"]
+[node name="Godot Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Game made with the Godot Engine"
+text = "Game made with the Godot Engine
+godotengine.org/license"
 label_settings = ExtResource("3_flhbk")
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="VBoxContainer"]
+[node name="Empty Label 2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+label_settings = ExtResource("3_flhbk")
+horizontal_alignment = 1
+
+[node name="Ovani Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Music and sound effects by Ovani Sound"
 label_settings = ExtResource("3_flhbk")

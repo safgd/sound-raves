@@ -12,6 +12,8 @@ func _ready() -> void:
 		$"Repating Shock Wave Timer".stop()
 		$"Initial Wait Timer".wait_time = initial_wait_time
 		$"Initial Wait Timer".start()
+	
+	$"../../Ground".notify_shock_wave_spawner_placement(global_position)
 
 func _on_repating_shock_wave_timer_timeout() -> void:
 	spawn_shock_wave()
