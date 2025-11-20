@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://gleir6t2rxqq"]
+
+[ext_resource type="PackedScene" uid="uid://colbenhotb1vv" path="res://Levels/level_template.tscn" id="1_5lru4"]
+[ext_resource type="PackedScene" uid="uid://ba1lhlowv02v7" path="res://Scenes/shock_wave_spawner.tscn" id="2_ej5lj"]
+
+[node name="Level 3" instance=ExtResource("1_5lru4")]
+
+[node name="Ground" parent="." index="2"]
+width = 4
+
+[node name="Player" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 6)
+
+[node name="Camera3D" parent="Player" index="5"]
+transform = Transform3D(1, 0, 0, 0, 0.62025833, 0.78439766, 0, -0.78439766, 0.62025833, 0, 3.5890265, 1.8397093)
+
+[node name="Shock Wave Spawner" parent="Schock Wave Spawners" index="0" instance=ExtResource("2_ej5lj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 6)
+initial_wait_time = 1.0
+
+[node name="Shock Wave Spawner2" parent="Schock Wave Spawners" index="1" instance=ExtResource("2_ej5lj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 3)
+
+[node name="Shock Wave Spawner3" parent="Schock Wave Spawners" index="2" instance=ExtResource("2_ej5lj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+initial_wait_time = 5.0
+
+[node name="Shock Wave Spawner4" parent="Schock Wave Spawners" index="3" instance=ExtResource("2_ej5lj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+initial_wait_time = 7.0

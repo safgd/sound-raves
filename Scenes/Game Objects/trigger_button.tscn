@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dl1e5d7jt2nvj"]
+
+[ext_resource type="Script" uid="uid://dydmfy8jk02pf" path="res://Scripts/trigger_button.gd" id="1_lxw5h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3m2v5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lxw5h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lryef"]
+size = Vector3(0.7, 1, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lryef"]
+size = Vector3(0.7, 1, 0.7)
+
+[node name="Trigger Button" type="StaticBody3D"]
+script = ExtResource("1_lxw5h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3m2v5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_lxw5h")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15537912, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("BoxMesh_lryef")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_lryef")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

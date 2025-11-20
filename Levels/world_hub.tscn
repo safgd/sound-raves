@@ -86,3 +86,8 @@ level_name = "Level 1"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
 level_scene_path = "res://Levels/level_2.tscn"
 level_name = "Level 2"
+
+[node name="Level Entry5" parent="Level Entries" instance=ExtResource("5_5chmu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+level_scene_path = "res://Levels/level_3.tscn"
+level_name = "Level 3"

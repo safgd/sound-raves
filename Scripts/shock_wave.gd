@@ -8,6 +8,7 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioManager.audio_tick.connect(change_color)
+	change_color()
 
 func _physics_process(delta: float) -> void:
 	
