@@ -4,6 +4,10 @@
 
 [node name="Level Tutorial" instance=ExtResource("1_u88ni")]
 
+[node name="Ground" parent="." index="2"]
+width = 8
+length = 8
+
 [node name="Label3D" type="Label3D" parent="Player" index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7244525, 0)
 text = "Walk over every floor tile

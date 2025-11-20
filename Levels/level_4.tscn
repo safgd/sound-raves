@@ -7,15 +7,15 @@
 [node name="Level 4" instance=ExtResource("1_e78ah")]
 
 [node name="Ground" parent="." index="2"]
-width = 10
+width = 8
+length = 8
 
 [node name="Player" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2)
 
 [node name="Shock Wave Spawner" parent="Schock Wave Spawners" index="0" instance=ExtResource("2_nsqb1")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -2)
-initial_wait_time = 0.1
-interval = 2.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+initial_wait_time = 3.0
 
 [node name="Trigger Button" parent="." index="7" instance=ExtResource("3_nsqb1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
@@ -27,7 +27,3 @@ type = 1
 [node name="Trigger Button3" parent="." index="9" instance=ExtResource("3_nsqb1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2)
 type = 2
-
-[connection signal="trigger" from="Trigger Button" to="Schock Wave Spawners/Shock Wave Spawner" method="_on_trigger"]
-[connection signal="trigger" from="Trigger Button2" to="Schock Wave Spawners/Shock Wave Spawner" method="_on_trigger"]
-[connection signal="trigger" from="Trigger Button3" to="Schock Wave Spawners/Shock Wave Spawner" method="_on_trigger"]

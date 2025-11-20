@@ -8,7 +8,9 @@ extends StaticBody3D
 @export var mesh: Mesh
 ## If an uneven number is entered, it will be increased by one to become even.
 @export var width: int = 18
-# Called when the node enters the scene tree for the first time.
+@export var length: int = 18
+
+
 var multimesh: MultiMesh
 
 var marked_tiles: Dictionary = {}
@@ -30,6 +32,8 @@ enum Mode{
 func _ready():
 	if width % 2 == 1:
 		width += 1
+	if length % 2 == 1:
+		length += 1
 	
 	AudioManager.audio_tick.connect(change_tile_color)
 	
@@ -38,18 +42,22 @@ func _ready():
 	multimesh.use_colors = true
 	multimesh.mesh = mesh  # Mesh zuweisen
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
-	multimesh.instance_count = width * width
+	#multimesh.instance_count = width * width
+	multimesh.instance_count = width * length
 	multimesh.visible_instance_count = -1
 	
 	# Transformationsdaten setzen
 	var counter: int = 0
 	for x in range(width):
-		for z in range(width):
-			var mesh_transform = Transform3D(Basis(), Vector3(x-(width)/2.0, -0.49, z-(width)/2.0))  # Setze Position
+		#for z in range(width):
+		for z in range(length):
+			#var mesh_transform = Transform3D(Basis(), Vector3(x-(width)/2.0, -0.49, z-(width)/2.0))  # Setze Position
+			var mesh_transform = Transform3D(Basis(), Vector3(x-(width)/2.0, -0.49, z-(length)/2.0))  # Setze Position
 			multimesh.set_instance_transform(counter, mesh_transform)
 			
 			if mode == Mode.ACTIVATING:
-				if not (x == 0 or x == width -1 or z == 0 or z == width -1) or not colored_borders:
+				#if not (x == 0 or x == width -1 or z == 0 or z == width -1) or not colored_borders:
+				if not (x == 0 or x == width -1 or z == 0 or z == length -1) or not colored_borders:
 					marked_tiles[counter] = 0
 			counter += 1
 	
@@ -61,19 +69,19 @@ func _ready():
 	
 	change_tile_color()
 	
-	$CollisionShape3D.shape.size = Vector3(width, 1.0, width)
-	$CollisionShape3D/MeshInstance3D.mesh.size = Vector2(width, width)
+	#$CollisionShape3D.shape.size = Vector3(width, 1.0, width)
+	#$CollisionShape3D/MeshInstance3D.mesh.size = Vector2(width, width)
+	$CollisionShape3D.shape.size = Vector3(width, 1.0, length)
+	$CollisionShape3D/MeshInstance3D.mesh.size = Vector2(width, length)
 
 func change_tile_color():
-	for i in range(width*width):
+	#for i in range(width*width):
+	for i in range(width*length):
 		if not marked_tiles.has(i):
 			var color: Color = random_colors[randi() % random_colors.size()]
 			multimesh.set_instance_color(i, color)
 
 func overwrite_tile_color(pos: Vector3):
-	#var x: int = floor(pos.x + 0.5 + width/2.0)
-	#var z: int = floor(pos.z + 0.5 + width/2.0)
-	#var i: int = x * width + z
 	var i: int = pos_to_index(pos)
 	
 	match mode:
@@ -101,8 +109,6 @@ func overwrite_tile_color(pos: Vector3):
 				if marked_tiles.size() <= 0:
 					print("won")
 					$"..".win_condition_fulfilled()
-					#$"../UI/Pause Menu"._on_home_button_pressed()
-					#get_tree().paused = true
 			else:
 				pass
 	
@@ -124,5 +130,7 @@ func notify_shock_wave_spawner_placement(pos: Vector3):
 func pos_to_index(pos: Vector3) -> int:
 	pos -= global_position
 	var x: int = floor(pos.x + 0.5 + width/2.0)
-	var z: int = floor(pos.z + 0.5 + width/2.0)
-	return x * width + z
+	#var z: int = floor(pos.z + 0.5 + width/2.0)
+	var z: int = floor(pos.z + 0.5 + length/2.0)
+	#return x * width + z
+	return x * length + z

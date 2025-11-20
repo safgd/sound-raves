@@ -33,13 +33,10 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			Type.ONE_WAY:
 				pass
 			Type.TEMPORARY:
-				pass
+				pass 
 			Type.ON_STAY:
 				pass
 		
-		
-
-
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		match type:

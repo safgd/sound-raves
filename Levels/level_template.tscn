@@ -31,7 +31,8 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Ground" parent="." instance=ExtResource("2_rbi8j")]
-width = 6
+width = 12
+length = 12
 
 [node name="UI" type="Node" parent="."]
 

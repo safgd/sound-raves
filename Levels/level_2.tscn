@@ -9,6 +9,7 @@
 
 [node name="Ground" parent="." index="2"]
 width = 8
+length = 8
 
 [node name="Player" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 2)
@@ -21,7 +22,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
 
 [node name="Shock Wave Spawner3" parent="Schock Wave Spawners" index="2" instance=ExtResource("2_kbe2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
-initial_wait_time = 1.0
 
 [node name="Collectables" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -3)
