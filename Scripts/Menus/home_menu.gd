@@ -5,6 +5,7 @@ extends CanvasLayer
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	$"VBoxContainer/Start Button".grab_focus()
 
 func _on_start_button_pressed() -> void:
 	AudioManager.play_button_click_sound()

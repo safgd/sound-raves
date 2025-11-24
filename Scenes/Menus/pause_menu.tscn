@@ -29,6 +29,7 @@ horizontal_alignment = 1
 
 [node name="Unpause Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Home Screen Button")
 text = "Unpause"
 
 [node name="Hub World Button" type="Button" parent="VBoxContainer"]
@@ -37,8 +38,20 @@ text = "Level Selection"
 
 [node name="Home Screen Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../Unpause Button")
 text = "Start Screen"
+
+[node name="Music Toggle Button" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 119.0
+grow_vertical = 0
+toggle_mode = true
+text = "Turn Music OFF"
 
 [connection signal="pressed" from="VBoxContainer/Unpause Button" to="." method="_on_unpause_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Hub World Button" to="." method="_on_hub_world_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Home Screen Button" to="." method="_on_home_screen_button_pressed"]
+[connection signal="toggled" from="Music Toggle Button" to="." method="_on_music_toggle_button_toggled"]

@@ -29,10 +29,14 @@ horizontal_alignment = 1
 
 [node name="Start Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Credits Button")
+focus_neighbor_bottom = NodePath("../Credits Button")
 text = "Start Game"
 
 [node name="Credits Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Start Button")
+focus_neighbor_bottom = NodePath("../Start Button")
 text = "Credits"
 
 [connection signal="pressed" from="VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]

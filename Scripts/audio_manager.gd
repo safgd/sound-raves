@@ -3,6 +3,19 @@ extends Node
 signal audio_tick
 
 @export var step_audio_streams: Array[AudioStream]
+var music_default_volume: float
+var music_muted: bool = false
+
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	music_default_volume = $"Music Player".volume_db
+
+func toggle_music():
+	music_muted = !music_muted
+	if music_muted:
+		$"Music Player".volume_db = -80.0
+	else:
+		$"Music Player".volume_db = music_default_volume
 
 func play_jump_sound():
 	$"Jump Sound Player".play()
