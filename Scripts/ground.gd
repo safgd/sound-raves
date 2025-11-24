@@ -88,7 +88,7 @@ func change_tile_color():
 			var color: Color = random_colors[randi() % random_colors.size()]
 			multimesh.set_instance_color(i, color)
 
-func overwrite_tile_color(pos: Vector3):
+func overwrite_tile_color(pos: Vector3, by_player: bool = false):
 	var i: int = pos_to_index(pos)
 	
 	match mode:
@@ -105,7 +105,7 @@ func overwrite_tile_color(pos: Vector3):
 				timer.start()
 				timer.timeout.connect(_on_marked_tile_timer_timeout.bind(i))
 				marked_tiles[i] = timer
-		
+			
 		Mode.ACTIVATING:
 			if marked_tiles.has(i):
 				marked_tiles.erase(i)
@@ -114,9 +114,11 @@ func overwrite_tile_color(pos: Vector3):
 				multimesh.set_instance_color(i, color)
 				
 				if marked_tiles.size() <= 0:
-					#print("won")
-					#$"..".win_condition_fulfilled()
 					level.register_completed_ground()
+				
+				if by_player:
+					AudioManager.play_marking_sound()
+				
 			else:
 				pass
 	
@@ -134,6 +136,9 @@ func notify_shock_wave_spawner_placement(pos: Vector3):
 			marked_tiles.erase(pos_to_index(Vector3(pos.x+1, 0, pos.z)))
 			marked_tiles.erase(pos_to_index(Vector3(pos.x, 0, pos.z-1)))
 			marked_tiles.erase(pos_to_index(Vector3(pos.x, 0, pos.z+1)))
+		
+		if marked_tiles.size() <= 0:
+			level.register_completed_ground()
 
 func pos_to_index(pos: Vector3) -> int:
 	pos -= global_position

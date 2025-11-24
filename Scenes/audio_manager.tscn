@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://xf0jmhlvbnap"]
+[gd_scene load_steps=20 format=3 uid="uid://xf0jmhlvbnap"]
 
 [ext_resource type="Script" uid="uid://dxf2y48xbk06" path="res://Scripts/audio_manager.gd" id="1_sm2tf"]
 [ext_resource type="AudioStream" uid="uid://c10walrle8ke2" path="res://Assets/Sounds/Steps/Shoe Step Wood Hard A.wav" id="2_fasow"]
@@ -10,10 +10,20 @@
 [ext_resource type="AudioStream" uid="uid://d2lc8dlk1r1n1" path="res://Assets/Sounds/Roboroar 006.wav" id="5_0hehx"]
 [ext_resource type="AudioStream" uid="uid://bbrb151ojubiu" path="res://Assets/Sounds/Steps/Shoe Step Wood Hard D.wav" id="5_bkjj7"]
 [ext_resource type="AudioStream" uid="uid://cum34dmli4csm" path="res://Assets/Sounds/Steps/Shoe Step Wood Hard E.wav" id="6_dv115"]
-[ext_resource type="AudioStream" uid="uid://ooicekh6yw5p" path="res://Assets/Sounds/Inventory.wav" id="6_mjqhu"]
+[ext_resource type="AudioStream" uid="uid://ooicekh6yw5p" path="res://Assets/Sounds/Items/Inventory.wav" id="6_mjqhu"]
 [ext_resource type="AudioStream" uid="uid://xa4ftfr2eh74" path="res://Assets/Sounds/Steps/Shoe Step Wood Medium A.wav" id="7_tesok"]
 [ext_resource type="AudioStream" uid="uid://dfo6iiofjrqpu" path="res://Assets/Sounds/Steps/Shoe Step Wood Medium B.wav" id="8_s7ae5"]
-[ext_resource type="AudioStream" uid="uid://dewv0d7k66q2c" path="res://Assets/Sounds/Casual Glass.wav" id="14_1bal0"]
+[ext_resource type="AudioStream" uid="uid://xkbpgb6xlxes" path="res://Assets/Sounds/Holy Laser B.wav" id="13_tesok"]
+[ext_resource type="AudioStream" uid="uid://dewv0d7k66q2c" path="res://Assets/Sounds/Items/Casual Glass.wav" id="14_1bal0"]
+[ext_resource type="AudioStream" uid="uid://c2snmdk3xuavp" path="res://Assets/Sounds/Items/Harmonic I.wav" id="14_dv115"]
+[ext_resource type="AudioStream" uid="uid://clvrxcapf8is7" path="res://Assets/Sounds/Electric Zap.wav" id="16_dv115"]
+[ext_resource type="AudioStream" uid="uid://difru4b4dxftk" path="res://Assets/Sounds/UI/Octavius H.wav" id="17_s7ae5"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dv115"]
+random_pitch = 1.93
+random_volume_offset_db = 0.37
+streams_count = 1
+stream_0/stream = ExtResource("16_dv115")
 
 [node name="Audio Manager" type="Node"]
 script = ExtResource("1_sm2tf")
@@ -34,13 +44,27 @@ volume_db = -10.0
 [node name="Loose Sound Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_0hehx")
 
+[node name="Win Sound Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_tesok")
+volume_db = -7.091
+
 [node name="Coin Sound Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_mjqhu")
+
+[node name="Heal Item Sound Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_dv115")
 
 [node name="Step Sound Player" type="AudioStreamPlayer" parent="."]
 
 [node name="Coin Spawn Sound Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_1bal0")
+
+[node name="Marking Sound Player" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_dv115")
+volume_db = -21.272
+
+[node name="Button Click Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_s7ae5")
 
 [node name="World Tick" type="Timer" parent="."]
 wait_time = 0.5

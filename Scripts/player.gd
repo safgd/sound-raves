@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 		$"Ground Check Raycast".force_raycast_update()
 		var collider = $"Ground Check Raycast".get_collider()
 		if collider and collider is Ground:
-			collider.overwrite_tile_color(global_position)
+			collider.overwrite_tile_color(global_position, true)
 		$"Ground Check Raycast".enabled = false
 
 	# Handle jump.

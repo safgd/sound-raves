@@ -13,4 +13,5 @@ func register_completed_ground():
 		win_condition_fulfilled()
 
 func win_condition_fulfilled():
+	AudioManager.play_win_sound()
 	get_tree().call_deferred("change_scene_to_file", hub_world_scene_path)

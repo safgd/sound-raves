@@ -20,14 +20,17 @@ func pause():
 	#Audio
 
 func _on_unpause_button_pressed() -> void:
+	AudioManager.play_button_click_sound()
 	get_tree().paused = false
 	visible = false
 
 func _on_hub_world_button_pressed() -> void:
+	AudioManager.play_button_click_sound()
 	get_tree().paused = false
 	visible = false
 	get_tree().call_deferred("change_scene_to_file", hub_world_scene_path)
 
 func _on_home_screen_button_pressed() -> void:
+	AudioManager.play_button_click_sound()
 	visible = false
 	get_tree().call_deferred("change_scene_to_file", home_screen_scene_path)

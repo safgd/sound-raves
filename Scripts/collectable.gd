@@ -18,5 +18,5 @@ func _on_body_entered(body: Node3D) -> void:
 			Type.COIN:
 				AudioManager.play_coin_sound()
 			Type.HEALTH:
-				pass # add sound later
+				AudioManager.play_heal_item_sound()
 		call_deferred("queue_free")
