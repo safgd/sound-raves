@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://vc7ygciayaif"]
+
+[ext_resource type="PackedScene" uid="uid://colbenhotb1vv" path="res://Levels/level_template.tscn" id="1_a6k8o"]
+[ext_resource type="PackedScene" uid="uid://clygl7b02goqu" path="res://Scenes/ground.tscn" id="2_pses1"]
+[ext_resource type="PackedScene" uid="uid://ba1lhlowv02v7" path="res://Scenes/Game Objects/shock_wave_spawner.tscn" id="3_321yd"]
+[ext_resource type="PackedScene" uid="uid://wiv3mxvsbb5f" path="res://Scenes/Collectables/coin_collectable.tscn" id="3_ki7po"]
+[ext_resource type="PackedScene" uid="uid://dmdkv5nr6xt8m" path="res://Scenes/Game Objects/jump_pad.tscn" id="3_u0s3x"]
+
+[node name="Level 5" instance=ExtResource("1_a6k8o")]
+
+[node name="Ground" parent="Grounds" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+width = 3
+length = 11
+
+[node name="Ground2" parent="Grounds" index="1" instance=ExtResource("2_pses1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -7)
+width = 5
+length = 5
+
+[node name="Ground3" parent="Grounds" index="2" instance=ExtResource("2_pses1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 7, -7)
+width = 5
+length = 5
+
+[node name="Player" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 6)
+
+[node name="Shock Wave Spawner" parent="Schock Wave Spawners" index="0" instance=ExtResource("3_321yd")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -4)
+initial_wait_time = 0.0
+
+[node name="Coin Collectable" parent="Collectables" index="0" instance=ExtResource("3_ki7po")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -4)
+
+[node name="Jump Pad" parent="Jump Pads" index="0" instance=ExtResource("3_u0s3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Jump Pad2" parent="Jump Pads" index="1" instance=ExtResource("3_u0s3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -8)

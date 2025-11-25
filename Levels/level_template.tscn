@@ -45,13 +45,6 @@ visible = false
 
 [node name="Player" parent="." node_paths=PackedStringArray("game_ui") instance=ExtResource("5_fksqx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-max_health = 3
-start_health = -1
-speed = 5.0
-jump_velocity = 4.5
-orientation_speed = 20.0
-shake_ammount = 0.2
-shake_duration = 0.2
 game_ui = NodePath("../UI/Game UI")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
@@ -61,3 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 0.96163124, 0.27434525, 0, -0.27434525, 0.96
 
 [node name="Collectables" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Trigger Buttons" type="Node3D" parent="."]
+
+[node name="Jump Pads" type="Node3D" parent="."]
