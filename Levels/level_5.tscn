@@ -24,17 +24,20 @@ width = 5
 length = 5
 
 [node name="Player" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 7)
 
 [node name="Shock Wave Spawner" parent="Schock Wave Spawners" index="0" instance=ExtResource("3_321yd")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -4)
-initial_wait_time = 0.0
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2, -4)
+initial_wait_time = 0.01
 
 [node name="Coin Collectable" parent="Collectables" index="0" instance=ExtResource("3_ki7po")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -4)
+
+[node name="Coin Collectable2" parent="Collectables" index="1" instance=ExtResource("3_ki7po")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -7)
 
 [node name="Jump Pad" parent="Jump Pads" index="0" instance=ExtResource("3_u0s3x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Jump Pad2" parent="Jump Pads" index="1" instance=ExtResource("3_u0s3x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -7)
