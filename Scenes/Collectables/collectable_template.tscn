@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkxqiqx5donj0"]
+[gd_scene load_steps=6 format=3 uid="uid://dkxqiqx5donj0"]
 
 [ext_resource type="Script" uid="uid://csq7i3wq1u61n" path="res://Scripts/collectable.gd" id="1_vrrj0"]
+[ext_resource type="PackedScene" uid="uid://b16trg4ambf4" path="res://Scenes/mover.tscn" id="2_ko4f2"]
+[ext_resource type="Script" uid="uid://4hsnulc0vcb5" path="res://Scripts/mover.gd" id="3_jxqih"]
+[ext_resource type="PackedScene" uid="uid://d05w714uwjcob" path="res://Scenes/rotater.tscn" id="4_4rcn8"]
+[ext_resource type="Script" uid="uid://bcq7cj6vamth2" path="res://Scripts/rotater.gd" id="5_m65n4"]
 
 [node name="Collectable Template" type="Area3D"]
 script = ExtResource("1_vrrj0")
+
+[node name="Mover" parent="." instance=ExtResource("2_ko4f2")]
+script = ExtResource("3_jxqih")
+shift = Vector3(0, 1, 0)
+
+[node name="Rotater" parent="." instance=ExtResource("4_4rcn8")]
+script = ExtResource("5_m65n4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

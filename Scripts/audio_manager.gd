@@ -50,6 +50,9 @@ func play_coin_spawn_sound():
 func play_marking_sound():
 	$"Marking Sound Player".play()
 
+func play_ingame_button_click_sound():
+	$"Ingame Button Click Sound".play()
+
 func play_button_click_sound():
 	$"Button Click Sound".play()
 

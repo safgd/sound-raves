@@ -25,7 +25,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		pushed = true
 		$Area3D/MeshInstance3D.global_position.y -= 0.2
-		# play sound
+		AudioManager.play_ingame_button_click_sound()
 		trigger.emit(pushed)
 		print("trigger")
 		

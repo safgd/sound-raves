@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://dig6c86lul36g"]
+
+[ext_resource type="PackedScene" uid="uid://colbenhotb1vv" path="res://Levels/level_template.tscn" id="1_r2npx"]
+[ext_resource type="PackedScene" uid="uid://clygl7b02goqu" path="res://Scenes/ground.tscn" id="2_2vdoi"]
+[ext_resource type="PackedScene" uid="uid://ba1lhlowv02v7" path="res://Scenes/Game Objects/shock_wave_spawner.tscn" id="3_4lr4b"]
+[ext_resource type="PackedScene" uid="uid://dl1e5d7jt2nvj" path="res://Scenes/Game Objects/trigger_button.tscn" id="4_4lr4b"]
+[ext_resource type="PackedScene" uid="uid://wiv3mxvsbb5f" path="res://Scenes/Collectables/coin_collectable.tscn" id="4_5fc7w"]
+
+[node name="Level 6" instance=ExtResource("1_r2npx")]
+
+[node name="Ground" parent="Grounds" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+width = 5
+length = 3
+
+[node name="Ground2" parent="Grounds" index="1" instance=ExtResource("2_2vdoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+width = 3
+length = 11
+
+[node name="Ground3" parent="Grounds" index="2" instance=ExtResource("2_2vdoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+width = 3
+length = 11
+
+[node name="Ground5" parent="Grounds" index="3" instance=ExtResource("2_2vdoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -4)
+width = 7
+length = 7
+
+[node name="Player" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, 0)
+
+[node name="Camera3D" parent="Player" index="6"]
+transform = Transform3D(1, 0, 0, 0, 0.50851554, 0.8610529, 0, -0.8610529, 0.50851554, 0, 3.8527784, 1.6212406)
+
+[node name="Shock Wave Spawner" parent="Schock Wave Spawners" index="0" instance=ExtResource("3_4lr4b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -3)
+initial_wait_time = 0.01
+interval = 1.0
+
+[node name="Coin Collectable" parent="Collectables" index="0" instance=ExtResource("4_5fc7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8)
+
+[node name="Coin Collectable2" parent="Collectables" index="1" instance=ExtResource("4_5fc7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -8)
+
+[node name="Coin Collectable3" parent="Collectables" index="2" instance=ExtResource("4_5fc7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="Trigger Button" parent="Trigger Buttons" index="0" instance=ExtResource("4_4lr4b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[connection signal="trigger" from="Trigger Buttons/Trigger Button" to="Schock Wave Spawners/Shock Wave Spawner" method="_on_trigger"]

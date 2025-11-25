@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://xf0jmhlvbnap"]
+[gd_scene load_steps=22 format=3 uid="uid://xf0jmhlvbnap"]
 
 [ext_resource type="Script" uid="uid://dxf2y48xbk06" path="res://Scripts/audio_manager.gd" id="1_sm2tf"]
 [ext_resource type="AudioStream" uid="uid://c10walrle8ke2" path="res://Assets/Sounds/Steps/Shoe Step Wood Hard A.wav" id="2_fasow"]
@@ -13,11 +13,13 @@
 [ext_resource type="AudioStream" uid="uid://ooicekh6yw5p" path="res://Assets/Sounds/Items/Inventory.wav" id="6_mjqhu"]
 [ext_resource type="AudioStream" uid="uid://xa4ftfr2eh74" path="res://Assets/Sounds/Steps/Shoe Step Wood Medium A.wav" id="7_tesok"]
 [ext_resource type="AudioStream" uid="uid://dfo6iiofjrqpu" path="res://Assets/Sounds/Steps/Shoe Step Wood Medium B.wav" id="8_s7ae5"]
+[ext_resource type="AudioStream" uid="uid://7ydfxcswi8dh" path="res://Assets/Sounds/Soft Button.wav" id="11_w4e61"]
 [ext_resource type="AudioStream" uid="uid://xkbpgb6xlxes" path="res://Assets/Sounds/Holy Laser B.wav" id="13_tesok"]
 [ext_resource type="AudioStream" uid="uid://dewv0d7k66q2c" path="res://Assets/Sounds/Items/Casual Glass.wav" id="14_1bal0"]
 [ext_resource type="AudioStream" uid="uid://c2snmdk3xuavp" path="res://Assets/Sounds/Items/Harmonic I.wav" id="14_dv115"]
 [ext_resource type="AudioStream" uid="uid://clvrxcapf8is7" path="res://Assets/Sounds/Electric Zap.wav" id="16_dv115"]
 [ext_resource type="AudioStream" uid="uid://difru4b4dxftk" path="res://Assets/Sounds/UI/Octavius H.wav" id="17_s7ae5"]
+[ext_resource type="AudioStream" uid="uid://bn818ofa3o6v4" path="res://Assets/Sounds/Broken C.wav" id="19_uebr4"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dv115"]
 random_pitch = 1.93
@@ -38,6 +40,7 @@ autoplay = true
 stream = ExtResource("3_qixve")
 
 [node name="Jump Pad Sound Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_w4e61")
 
 [node name="Damaged Sound Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_qixve")
@@ -64,6 +67,10 @@ stream = ExtResource("14_1bal0")
 [node name="Marking Sound Player" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_dv115")
 volume_db = -21.272
+
+[node name="Ingame Button Click Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_uebr4")
+volume_db = -7.61
 
 [node name="Button Click Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_s7ae5")

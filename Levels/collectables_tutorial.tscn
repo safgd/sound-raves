@@ -19,6 +19,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
 
 [node name="Label3D" type="Label3D" parent="Collectables/Health Collectable" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
 text = "This one heals you"
 font_size = 64
 
@@ -27,5 +28,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
 
 [node name="Label3D" type="Label3D" parent="Collectables/Coin Collectable" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
 text = "This is a coin to collect"
 font_size = 64

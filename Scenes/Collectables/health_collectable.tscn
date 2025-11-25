@@ -21,3 +21,6 @@ mesh = SubResource("SphereMesh_76och")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 shape = SubResource("SphereShape3D_v25i7")
+
+[node name="Rotater" parent="." index="3"]
+disabled = true
