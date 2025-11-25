@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 AudioManager="*res://Scenes/audio_manager.tscn"
 GraphicsSettings="*res://Scenes/graphics_settings.tscn"
+SceneLoader="*res://Scenes/scene_loader.tscn"
 
 [input]
 

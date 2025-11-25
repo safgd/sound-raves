@@ -32,6 +32,7 @@ shape = SubResource("CylinderShape3D_u1nf7")
 one_shot = true
 
 [node name="Ground Check Raycast" parent="." instance=ExtResource("3_mt0yn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25015765, 0)
 pre_color_extended = true
 
 [connection signal="timeout" from="Repating Shock Wave Timer" to="." method="_on_repating_shock_wave_timer_timeout"]

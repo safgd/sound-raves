@@ -22,6 +22,7 @@ func update_coin_count_label(coin_count: int):
 	coins_label.text = str(coin_count) + " Coins"
 
 func _input(event):
+	return
 	if event is InputEventKey:
 		if event.pressed:
 			print("Taste gedrückt: ", event.as_text_keycode())
