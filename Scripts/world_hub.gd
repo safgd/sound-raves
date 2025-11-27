@@ -11,6 +11,9 @@ func _ready() -> void:
 		$Player.global_position = level_entry.get_player_spawn_pos()
 	else:
 		print(GameStats.last_level_path)
+	
+	# This property has a setter function, practically this updates a ui-label according to the value
+	GameStats.coins = GameStats.coins
 
 func get_level_entries() -> Array:
 	return $"Level Entries".get_children()
@@ -23,3 +26,6 @@ func get_level_entry(level_path: String) -> Level_Entry:
 
 func get_player() -> Player:
 	return $Player
+
+func get_game_ui() -> Game_UI:
+	return $"UI/Game UI"

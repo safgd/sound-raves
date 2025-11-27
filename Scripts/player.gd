@@ -117,7 +117,7 @@ func _on_shockwave_exited(_body: Node3D) -> void:
 func get_collected(type: Collectable.Type):
 	match type:
 		Collectable.Type.COIN:
-			coin_count += 1
+			pass
 		Collectable.Type.HEALTH:
 			heal_player(1)
 

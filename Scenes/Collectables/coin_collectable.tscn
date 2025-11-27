@@ -1,20 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://wiv3mxvsbb5f"]
+[gd_scene load_steps=6 format=3 uid="uid://wiv3mxvsbb5f"]
 
 [ext_resource type="PackedScene" uid="uid://dkxqiqx5donj0" path="res://Scenes/Collectables/collectable_template.tscn" id="1_5k84u"]
+[ext_resource type="Material" uid="uid://bulpdjs3nw10q" path="res://Assets/Materials/collected_coin_collectable.tres" id="2_jcyj7"]
+[ext_resource type="Material" uid="uid://cd5d7ci71u4ws" path="res://Assets/Materials/coin_collectable.tres" id="2_mqkvl"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5k84u"]
 height = 0.2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqkvl"]
-albedo_color = Color(0.9598662, 0.8006343, 0, 1)
-metallic = 0.6
-roughness = 0.38
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_jcyj7"]
-material = SubResource("StandardMaterial3D_mqkvl")
+material = ExtResource("2_mqkvl")
 height = 0.2
 
 [node name="Coin Collectable" instance=ExtResource("1_5k84u")]
+alternative_material = ExtResource("2_jcyj7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)

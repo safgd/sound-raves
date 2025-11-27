@@ -60,7 +60,7 @@ shape = SubResource("BoxShape3D_uerhw")
 [node name="UI" type="Node" parent="."]
 
 [node name="Game UI" parent="UI" instance=ExtResource("2_5chmu")]
-hide_gameplay_ui = true
+is_outside_levels = true
 
 [node name="Pause Menu" parent="UI" instance=ExtResource("3_f3jub")]
 visible = false
@@ -80,20 +80,17 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.
 level_scene_path = "res://Levels/level_tutorial.tscn"
 level_name = "Tutorial
 Club 1"
-light_color = Color(0, 0, 0, 1)
 
 [node name="Tutorial 2 Entry" parent="Level Entries" instance=ExtResource("5_5chmu")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.560006, -1, 0)
 level_scene_path = "res://Levels/collectables_tutorial.tscn"
 level_name = "Tutorial
 Club 2"
-light_color = Color(0, 0, 0, 1)
 
 [node name="Level Entry1" parent="Level Entries" instance=ExtResource("5_5chmu")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.3220582, -1, 0)
 level_scene_path = "res://Levels/level_1.tscn"
 level_name = "Level 1"
-light_color = Color(0, 0, 0, 1)
 
 [node name="Level Entry2" parent="Level Entries" instance=ExtResource("5_5chmu")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8, -1, 0)

@@ -15,14 +15,14 @@ layout_mode = 2
 text = "0 fps"
 label_settings = ExtResource("2_qdvrb")
 
+[node name="Total Coins Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "0 Coins"
+label_settings = ExtResource("2_qdvrb")
+
 [node name="Health Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "0 HP"
-label_settings = ExtResource("2_qdvrb")
-
-[node name="Coins Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "0 Coins"
 label_settings = ExtResource("2_qdvrb")
 
 [node name="Input Label" type="Label" parent="VBoxContainer"]
