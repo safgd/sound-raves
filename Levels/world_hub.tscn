@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://34ghhubsewig"]
+[gd_scene load_steps=17 format=3 uid="uid://34ghhubsewig"]
 
+[ext_resource type="Script" uid="uid://bd0i14517m6p7" path="res://Scripts/world_hub.gd" id="1_27uoq"]
 [ext_resource type="Texture2D" uid="uid://bf1crmwxkea0i" path="res://icon.svg" id="1_yyfnp"]
 [ext_resource type="PackedScene" uid="uid://cm2aqjkuntn0h" path="res://Scenes/game_ui.tscn" id="2_5chmu"]
 [ext_resource type="PackedScene" uid="uid://csl17lkggtans" path="res://Scenes/Menus/pause_menu.tscn" id="3_f3jub"]
@@ -35,6 +36,7 @@ size = Vector3(50, 1, 50)
 size = Vector3(50, 1, 50)
 
 [node name="World Hub" type="Node3D"]
+script = ExtResource("1_27uoq")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_27uoq")

@@ -1,4 +1,5 @@
 @tool
+class_name Level_Entry
 extends Area3D
 
 @export var open: bool = false:
