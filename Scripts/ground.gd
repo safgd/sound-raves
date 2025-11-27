@@ -40,6 +40,9 @@ enum Mode{
 var level: Level
 
 func _ready():
+	if owner == get_tree().edited_scene_root:
+		return
+	
 	
 	level = get_parent().get_parent()
 	level.register_to_be_completed_ground()
