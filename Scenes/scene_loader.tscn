@@ -1,6 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgfaxcsjvxs3c"]
+[gd_scene load_steps=4 format=3 uid="uid://dgfaxcsjvxs3c"]
 
 [ext_resource type="Script" uid="uid://dejo8d2ikt8qs" path="res://Scripts/scene_loader.gd" id="1_ft5o6"]
+[ext_resource type="PackedScene" uid="uid://cejxqbneuohe0" path="res://Scenes/Game Objects/shock_wave.tscn" id="2_6ucuc"]
+[ext_resource type="LabelSettings" uid="uid://bhvd5ckquyxa5" path="res://Assets/Label Settings/titels.tres" id="3_f4co2"]
 
 [node name="Scene Loader" type="Node"]
 script = ExtResource("1_ft5o6")
+
+[node name="Shock Wave" parent="." instance=ExtResource("2_6ucuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, 0)
+visible = false
+no_time_out = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Loading Label" type="Label" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_top = -86.0
+offset_right = 394.0
+offset_bottom = 23.0
+text = "Loading"
+label_settings = ExtResource("3_f4co2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
