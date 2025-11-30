@@ -75,6 +75,8 @@ func _physics_process(delta: float) -> void:
 			state = State.DEFAULT
 			$"Spark Particles".global_position = Vector3(global_position.x, global_position.y-0.5, global_position.z)
 			$"Spark Particles".emitting = true
+			AudioManager.stop_stomp_sound()
+			AudioManager.play_stomp_landing_sound()
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept"):
@@ -120,6 +122,7 @@ func perform_jump(jump_vel: float, mute_player_jump_sound: bool = false):
 
 func perform_stomp():
 	state = State.STOMPING
+	AudioManager.play_stomp_sound()
 	pass
 
 func hurt_player(damage: int = 1):

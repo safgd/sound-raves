@@ -44,6 +44,15 @@ func play_step_sound():
 		$"Step Sound Player".stream = step_audio_streams[randi() % step_audio_streams.size()]
 		$"Step Sound Player".play()
 
+func play_stomp_sound():
+	$"Stomp Sound Player".play()
+
+func stop_stomp_sound():
+	$"Stomp Sound Player".stop()
+
+func play_stomp_landing_sound():
+	$"Stomp Landing Sound Player".play()
+
 func play_coin_spawn_sound():
 	$"Coin Spawn Sound Player".play()
 

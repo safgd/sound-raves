@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://xf0jmhlvbnap"]
+[gd_scene load_steps=24 format=3 uid="uid://xf0jmhlvbnap"]
 
 [ext_resource type="Script" uid="uid://dxf2y48xbk06" path="res://Scripts/audio_manager.gd" id="1_sm2tf"]
 [ext_resource type="AudioStream" uid="uid://c10walrle8ke2" path="res://Assets/Sounds/Steps/Shoe Step Wood Hard A.wav" id="2_fasow"]
@@ -20,6 +20,8 @@
 [ext_resource type="AudioStream" uid="uid://clvrxcapf8is7" path="res://Assets/Sounds/Electric Zap.wav" id="16_dv115"]
 [ext_resource type="AudioStream" uid="uid://difru4b4dxftk" path="res://Assets/Sounds/UI/Octavius H.wav" id="17_s7ae5"]
 [ext_resource type="AudioStream" uid="uid://bn818ofa3o6v4" path="res://Assets/Sounds/Broken C.wav" id="19_uebr4"]
+[ext_resource type="AudioStream" uid="uid://u1eyfnauabqc" path="res://Assets/Sounds/Walking Shirt B.wav" id="21_ype7x"]
+[ext_resource type="AudioStream" uid="uid://i6mx1ymknxpq" path="res://Assets/Sounds/Hit Tear B.wav" id="22_7oln7"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dv115"]
 random_pitch = 1.93
@@ -78,5 +80,13 @@ stream = ExtResource("17_s7ae5")
 [node name="World Tick" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="Stomp Sound Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_ype7x")
+volume_db = -3.9
+
+[node name="Stomp Landing Sound Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_7oln7")
+volume_db = -5.2
 
 [connection signal="timeout" from="World Tick" to="." method="_on_world_tick_timeout"]
