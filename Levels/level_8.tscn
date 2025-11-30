@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0eetfgoon7iv"]
+
+[ext_resource type="PackedScene" uid="uid://colbenhotb1vv" path="res://Levels/level_template.tscn" id="1_cfpsd"]
+[ext_resource type="PackedScene" uid="uid://ba1lhlowv02v7" path="res://Scenes/Game Objects/shock_wave_spawner.tscn" id="2_qowmf"]
+
+[node name="Level 8" instance=ExtResource("1_cfpsd")]
+
+[node name="Ground" parent="Grounds" index="0"]
+length = 10
+
+[node name="Player" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 3)
+
+[node name="Shock Wave Spawner" parent="Schock Wave Spawners" index="0" instance=ExtResource("2_qowmf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Shock Wave Spawner2" parent="Schock Wave Spawners" index="1" instance=ExtResource("2_qowmf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+initial_wait_time = 1.5
+interval = 4.0
+ring_growth_speed = 1.2
