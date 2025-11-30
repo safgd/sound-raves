@@ -16,6 +16,8 @@ signal damaged
 @export_category("Game Juice")
 @export var shake_ammount: float = 0.2
 @export var shake_duration: float = 0.2
+@export var hurt_material: StandardMaterial3D
+#var default_material: StandardMaterial3D
 
 @export_category("Setup")
 @export var game_ui: Game_UI
@@ -129,6 +131,7 @@ func hurt_player(damage: int = 1):
 	AudioManager.play_damaged_sound()
 	damaged.emit()
 	current_health -= damage
+	$MeshInstance3D.set_surface_override_material(0, hurt_material)
 	if current_health <= 0:
 		AudioManager.play_loose_sound()
 		get_tree().call_deferred("reload_current_scene")
@@ -164,3 +167,7 @@ func _on_steps_timer_timeout() -> void:
 func add_hat(hat: Shop_Item):
 	hat.call_deferred("reparent",$Hats, false)
 	hat.position = Vector3.ZERO
+
+
+func _on_invulnerability_timer_timeout() -> void:
+	$MeshInstance3D.set_surface_override_material(0, null)
