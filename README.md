@@ -1,4 +1,4 @@
-<img src=""images/git_preview.png="">
+![Alt text](/images/git_preview.png "Preview Screenshot")
 
 
 
