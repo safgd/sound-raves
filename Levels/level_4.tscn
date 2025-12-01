@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch1n5aao4akx0"]
+[gd_scene load_steps=7 format=3 uid="uid://ch1n5aao4akx0"]
 
 [ext_resource type="PackedScene" uid="uid://colbenhotb1vv" path="res://Levels/level_template.tscn" id="1_e78ah"]
 [ext_resource type="PackedScene" uid="uid://clygl7b02goqu" path="res://Scenes/ground.tscn" id="2_e78ah"]
 [ext_resource type="PackedScene" uid="uid://ba1lhlowv02v7" path="res://Scenes/Game Objects/shock_wave_spawner.tscn" id="2_nsqb1"]
-[ext_resource type="PackedScene" uid="uid://wiv3mxvsbb5f" path="res://Scenes/Collectables/coin_collectable.tscn" id="3_nsqb1"]
+[ext_resource type="PackedScene" uid="uid://cm6v2ap8lm3vc" path="res://Scenes/Collectables/half_coin_collectable.tscn" id="4_hvgxt"]
+[ext_resource type="PackedScene" uid="uid://dmdkv5nr6xt8m" path="res://Scenes/Game Objects/jump_pad.tscn" id="5_ujo87"]
+[ext_resource type="PackedScene" uid="uid://ym0cute1516x" path="res://Scenes/Game Objects/breakable_floor.tscn" id="6_hvgxt"]
 
 [node name="Level 4" instance=ExtResource("1_e78ah")]
 
 [node name="Ground" parent="Grounds" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 width = 3
 length = 3
 colored_borders = false
@@ -27,6 +30,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -4)
 width = 9
 length = 3
 
+[node name="Ground5" parent="Grounds" index="4" instance=ExtResource("2_e78ah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 0)
+width = 1
+length = 1
+
+[node name="Ground6" parent="Grounds" index="5" instance=ExtResource("2_e78ah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+width = 1
+length = 3
+
+[node name="Ground7" parent="Grounds" index="6" instance=ExtResource("2_e78ah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+width = 1
+length = 3
+
+[node name="Player" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5, 0)
+
 [node name="Shock Wave Spawner" parent="Schock Wave Spawners" index="0" instance=ExtResource("2_nsqb1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 initial_wait_time = 2.0
@@ -35,8 +56,14 @@ initial_wait_time = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -4)
 initial_wait_time = 6.0
 
-[node name="Coin Collectable" parent="Collectables" index="0" instance=ExtResource("3_nsqb1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
+[node name="Half Coin Collectable" parent="Collectables" index="0" instance=ExtResource("4_hvgxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, 0)
+
+[node name="Half Coin Collectable2" parent="Collectables" index="1" instance=ExtResource("4_hvgxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, -4)
+
+[node name="Jump Pad" parent="Jump Pads" index="0" instance=ExtResource("5_ujo87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 0)
 
 [node name="Speaker" parent="Background" index="0"]
 transform = Transform3D(1.9127202, 0, -14.87755, 0, 14.999999, 0, 14.87755, 0, 1.9127202, -23.524448, 0, -81.8515)
@@ -64,3 +91,6 @@ transform = Transform3D(0.033213966, 1.2303565, -3.805932, -0.010736781, 3.80607
 
 [node name="Double Music Note3" parent="Background" index="8"]
 transform = Transform3D(0.03411405, -0.8473462, -3.9090717, 0.0073944186, 3.9092205, -0.84731394, 3.9998477, 0, 0.034906246, -20.421402, 0, -14.152006)
+
+[node name="Breakable Floor" parent="." index="11" instance=ExtResource("6_hvgxt")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 3, 1, -5, 0)
