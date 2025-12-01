@@ -1,5 +1,7 @@
 A game made with the Godot game engine.
+
 https://fmga.itch.io/shock-raves
+
 Only code is included, no assets.
 
 ![Alt text](/images/git_preview.png "Preview Screenshot")
