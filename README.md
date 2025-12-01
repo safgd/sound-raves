@@ -12,8 +12,8 @@
 ### Licenses:
 
 ### Game: Copyright 2025 Amir Safaei
-### All Rights Reserved.
+All Rights Reserved.
 
 
 ### Godot Engine and Logo / Icon:
-### godotengine.org/license
+godotengine.org/license
