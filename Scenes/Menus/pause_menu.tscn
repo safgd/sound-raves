@@ -30,17 +30,23 @@ horizontal_alignment = 1
 
 [node name="Unpause Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../Music Toggle Button")
 focus_neighbor_top = NodePath("../Home Screen Button")
+focus_neighbor_right = NodePath("../../Music Toggle Button")
 theme = ExtResource("3_tf3q2")
 text = "Unpause"
 
 [node name="Hub World Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../Music Toggle Button")
+focus_neighbor_right = NodePath("../../Music Toggle Button")
 theme = ExtResource("3_tf3q2")
 text = "Level Selection"
 
 [node name="Home Screen Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../Music Toggle Button")
+focus_neighbor_right = NodePath("../../Music Toggle Button")
 focus_neighbor_bottom = NodePath("../Unpause Button")
 theme = ExtResource("3_tf3q2")
 text = "Start Screen"
@@ -52,6 +58,10 @@ anchor_bottom = 1.0
 offset_top = -31.0
 offset_right = 119.0
 grow_vertical = 0
+focus_neighbor_left = NodePath("../VBoxContainer/Unpause Button")
+focus_neighbor_top = NodePath("../VBoxContainer/Unpause Button")
+focus_neighbor_right = NodePath("../VBoxContainer/Unpause Button")
+focus_neighbor_bottom = NodePath("../VBoxContainer/Unpause Button")
 theme = ExtResource("3_tf3q2")
 toggle_mode = true
 text = "Turn Music OFF"

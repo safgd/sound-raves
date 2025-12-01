@@ -19,6 +19,9 @@ func _physics_process(delta: float) -> void:
 	if not no_time_out:
 		csg_torus.inner_radius += ring_growth * delta
 		csg_torus.outer_radius += ring_growth * delta
+		# queue free if game performance is too low
+		if Engine.get_frames_per_second() < 25:
+			_on_timer_timeout()
 
 func change_color():
 	var color: Color = random_colors[randi() % random_colors.size()]

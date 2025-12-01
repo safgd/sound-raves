@@ -30,7 +30,7 @@ horizontal_alignment = 1
 
 [node name="Start Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Credits Button")
+focus_neighbor_top = NodePath("../Quit Button")
 focus_neighbor_bottom = NodePath("../Credits Button")
 theme = ExtResource("3_q7aom")
 text = "Start Game"
@@ -38,9 +38,17 @@ text = "Start Game"
 [node name="Credits Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Start Button")
-focus_neighbor_bottom = NodePath("../Start Button")
+focus_neighbor_bottom = NodePath("../Quit Button")
 theme = ExtResource("3_q7aom")
 text = "Credits"
 
+[node name="Quit Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Credits Button")
+focus_neighbor_bottom = NodePath("../Start Button")
+theme = ExtResource("3_q7aom")
+text = "Quit"
+
 [connection signal="pressed" from="VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits Button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]

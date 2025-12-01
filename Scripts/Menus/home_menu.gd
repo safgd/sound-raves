@@ -6,7 +6,8 @@ extends CanvasLayer
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	$"VBoxContainer/Start Button".grab_focus()
-	
+	if not OS.get_name() == "Windows":
+		$"VBoxContainer/Quit Button".hide()
 
 func _on_start_button_pressed() -> void:
 	AudioManager.play_button_click_sound()
@@ -17,3 +18,6 @@ func _on_start_button_pressed() -> void:
 func _on_credits_button_pressed() -> void:
 	AudioManager.play_button_click_sound()
 	get_tree().call_deferred("change_scene_to_file", credits_scene_path)
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
