@@ -2,20 +2,24 @@ extends Node
 
 signal audio_tick
 
+@export var level_music_tracks: Array[AudioStream]
+
 @export var step_audio_streams: Array[AudioStream]
 var music_default_volume: float
 var music_muted: bool = false
+var music_bus_index: int
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	music_default_volume = $"Music Player".volume_db
+	music_bus_index = AudioServer.get_bus_index("Music")
+	music_default_volume = AudioServer.get_bus_volume_db(music_bus_index)
 
 func toggle_music():
 	music_muted = !music_muted
 	if music_muted:
-		$"Music Player".volume_db = -80.0
+		AudioServer.set_bus_volume_db(music_bus_index, -80)
 	else:
-		$"Music Player".volume_db = music_default_volume
+		AudioServer.set_bus_volume_db(music_bus_index, music_default_volume)
 
 func play_jump_sound():
 	$"Jump Sound Player".play()

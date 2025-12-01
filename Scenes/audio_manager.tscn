@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://xf0jmhlvbnap"]
+[gd_scene load_steps=28 format=3 uid="uid://xf0jmhlvbnap"]
 
 [ext_resource type="Script" uid="uid://dxf2y48xbk06" path="res://Scripts/audio_manager.gd" id="1_sm2tf"]
 [ext_resource type="AudioStream" uid="uid://c10walrle8ke2" path="res://Assets/Sounds/Steps/Shoe Step Wood Hard A.wav" id="2_fasow"]
@@ -25,6 +25,8 @@
 [ext_resource type="AudioStream" uid="uid://b4leakddsjvg5" path="res://Assets/Sounds/Equipment Small Handle Fast D.wav" id="23_7oln7"]
 [ext_resource type="AudioStream" uid="uid://dmcm28y44rehr" path="res://Assets/Sounds/Lamp Switch Off A.wav" id="25_uj3df"]
 
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_3rm37"]
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dv115"]
 random_pitch = 1.93
 random_volume_offset_db = 0.37
@@ -38,12 +40,18 @@ stream_0/stream = ExtResource("23_7oln7")
 
 [node name="Audio Manager" type="Node"]
 script = ExtResource("1_sm2tf")
+level_music_tracks = Array[AudioStream]([null, null, null, null, null, null, null, null, null, null, null])
 step_audio_streams = Array[AudioStream]([ExtResource("2_fasow"), ExtResource("3_1bal0"), ExtResource("4_vhwx7"), ExtResource("5_bkjj7"), ExtResource("6_dv115"), ExtResource("7_tesok"), ExtResource("8_s7ae5")])
 
 [node name="Music Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_hhwve")
 volume_db = -15.0
 autoplay = true
+bus = &"Music"
+
+[node name="Level Music Player" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPolyphonic_3rm37")
+volume_db = -15.0
 
 [node name="Jump Sound Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_qixve")

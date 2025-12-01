@@ -30,8 +30,8 @@ text = "0.0 x"
 label_settings = ExtResource("3_gjn1n")
 
 [node name="Coin UI Sprite" type="Sprite2D" parent="VBoxContainer/Coins HBox"]
-position = Vector2(256, 65.00001)
-scale = Vector2(0.2, 0.2)
+position = Vector2(172.075, 40.17501)
+scale = Vector2(0.13, 0.13)
 texture = ExtResource("3_x63ue")
 
 [node name="Health HBox" type="HBoxContainer" parent="VBoxContainer"]
@@ -43,6 +43,6 @@ text = "3    x"
 label_settings = ExtResource("3_gjn1n")
 
 [node name="Heart UI Sprite" type="Sprite2D" parent="VBoxContainer/Health HBox"]
-position = Vector2(255.5, 69.49999)
-scale = Vector2(0.2, 0.2)
+position = Vector2(171.575, 44.674995)
+scale = Vector2(0.13, 0.13)
 texture = ExtResource("4_gjn1n")
