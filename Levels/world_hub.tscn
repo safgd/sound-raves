@@ -1,18 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://34ghhubsewig"]
+[gd_scene load_steps=19 format=3 uid="uid://34ghhubsewig"]
 
 [ext_resource type="Script" uid="uid://bd0i14517m6p7" path="res://Scripts/world_hub.gd" id="1_27uoq"]
-[ext_resource type="Texture2D" uid="uid://bf1crmwxkea0i" path="res://icon.svg" id="1_yyfnp"]
 [ext_resource type="PackedScene" uid="uid://cm2aqjkuntn0h" path="res://Scenes/game_ui.tscn" id="2_5chmu"]
 [ext_resource type="Texture2D" uid="uid://clgesu8iqa70j" path="res://Assets/Skyboxes/nightsky.exr" id="2_uerhw"]
+[ext_resource type="Texture2D" uid="uid://ccq1cs0kmpktp" path="res://Assets/Sprites/stone_ground.png" id="3_drxpg"]
 [ext_resource type="PackedScene" uid="uid://csl17lkggtans" path="res://Scenes/Menus/pause_menu.tscn" id="3_f3jub"]
+[ext_resource type="Texture2D" uid="uid://c406ytng5nkeo" path="res://Assets/Sprites/stone_ground_normals.png" id="4_uerhw"]
 [ext_resource type="PackedScene" uid="uid://dluav450y5end" path="res://Scenes/player.tscn" id="4_uril1"]
 [ext_resource type="PackedScene" uid="uid://bqn7v7j2egbbp" path="res://Scenes/level_entry.tscn" id="5_5chmu"]
 [ext_resource type="Texture2D" uid="uid://bldilvyedv250" path="res://Assets/Sprites/bouncer_green.png" id="6_7fna7"]
 [ext_resource type="Texture2D" uid="uid://dqg2n6r6j18o5" path="res://Assets/Sprites/bouncer_pink.png" id="7_27uoq"]
 [ext_resource type="Texture2D" uid="uid://ddlbeg084djsi" path="res://Assets/Sprites/bouncer_red.png" id="8_wx043"]
 [ext_resource type="Texture2D" uid="uid://c18aqrxb8g4a7" path="res://Assets/Sprites/bouncer_yellow.png" id="9_drxpg"]
-[ext_resource type="PackedScene" uid="uid://ct0wnptbh06xq" path="res://Scenes/outfit_shop.tscn" id="11_wx043"]
-[ext_resource type="PackedScene" uid="uid://cigovqa4057km" path="res://Scenes/Shop Items/hat_shop_item.tscn" id="12_drxpg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_drxpg"]
 panorama = ExtResource("2_uerhw")
@@ -27,15 +26,18 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wx043"]
-albedo_texture = ExtResource("1_yyfnp")
+albedo_texture = ExtResource("3_drxpg")
+normal_enabled = true
+normal_texture = ExtResource("4_uerhw")
 uv1_triplanar = true
+texture_filter = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_drxpg"]
 material = SubResource("StandardMaterial3D_wx043")
-size = Vector3(50, 1, 50)
+size = Vector3(70, 1, 15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uerhw"]
-size = Vector3(50, 1, 50)
+size = Vector3(70, 1, 15)
 
 [node name="World Hub" type="Node3D"]
 script = ExtResource("1_27uoq")
@@ -66,17 +68,17 @@ is_outside_levels = true
 visible = false
 
 [node name="Player" parent="." node_paths=PackedStringArray("game_ui") instance=ExtResource("4_uril1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.5, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0.5, 2)
 game_ui = NodePath("../UI/Game UI")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.9183497, 0.39576992, 0, -0.39576992, 0.9183497, 0, 2.883587, 4.1300955)
 
 [node name="Level Entries" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5774767, 1, -3.2040777)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.039494, 0, -3.2040777)
 
 [node name="Tutorial Entry" parent="Level Entries" instance=ExtResource("5_5chmu")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.3538923, -1, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 coin_cost = 0
 open = true
 level_scene_path = "res://Levels/level_tutorial.tscn"
@@ -84,12 +86,12 @@ level_name = "Tutorial
 Club 1"
 
 [node name="Level Entry1" parent="Level Entries" instance=ExtResource("5_5chmu")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.3220582, -1, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 0, 0)
 level_scene_path = "res://Levels/level_1.tscn"
 level_name = "Level 1"
 
 [node name="Level Entry2" parent="Level Entries" instance=ExtResource("5_5chmu")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8, -1, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, 0)
 coin_cost = 2
 level_scene_path = "res://Levels/level_2.tscn"
 level_name = "Level 2"
@@ -97,7 +99,7 @@ bouncer_image = ExtResource("6_7fna7")
 light_color = Color(0, 0.7137255, 0, 1)
 
 [node name="Level Entry3" parent="Level Entries" instance=ExtResource("5_5chmu")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.739104, -1, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15, 0, 0)
 coin_cost = 2
 level_scene_path = "res://Levels/level_3.tscn"
 level_name = "Level 3"
@@ -105,7 +107,7 @@ bouncer_image = ExtResource("7_27uoq")
 light_color = Color(0.819001, 0.00011137456, 0.6767731, 1)
 
 [node name="Level Entry4" parent="Level Entries" instance=ExtResource("5_5chmu")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 19.030584, -1, 4.6028404)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20, 0, 0)
 coin_cost = 2
 level_scene_path = "res://Levels/level_4.tscn"
 level_name = "Level 4"
@@ -113,7 +115,7 @@ bouncer_image = ExtResource("8_wx043")
 light_color = Color(0.87730944, 0.0003120798, 0.00017124921, 1)
 
 [node name="Level Entry5" parent="Level Entries" instance=ExtResource("5_5chmu")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 23.437275, -1, 11.522612)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25, 0, 0)
 coin_cost = 2
 level_scene_path = "res://Levels/level_5.tscn"
 level_name = "Level 5
@@ -122,7 +124,7 @@ bouncer_image = ExtResource("9_drxpg")
 light_color = Color(0.6283661, 0.5620944, 0.09182263, 1)
 
 [node name="Level Entry6" parent="Level Entries" instance=ExtResource("5_5chmu")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 22.748497, -1, 18.103064)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30, 0, 0)
 coin_cost = 2
 level_scene_path = "res://Levels/level_6.tscn"
 level_name = "Level 6
@@ -130,7 +132,7 @@ level_name = "Level 6
 light_color = Color(0, 0.40041736, 0.7396866, 1)
 
 [node name="Level Entry7" parent="Level Entries" instance=ExtResource("5_5chmu")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 22.748497, -1, 24.103065)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 35, 0, 0)
 coin_cost = 2
 level_scene_path = "res://Levels/level_7.tscn"
 level_name = "Level 7"
@@ -138,7 +140,7 @@ bouncer_image = ExtResource("6_7fna7")
 light_color = Color(0, 0.48475963, 0.20632803, 1)
 
 [node name="Level Entry8" parent="Level Entries" instance=ExtResource("5_5chmu")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.251503, -1, 0.10306454)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 40, 0, 0)
 coin_cost = 2
 level_scene_path = "res://Levels/level_8.tscn"
 level_name = "Level 8"
@@ -146,13 +148,9 @@ bouncer_image = ExtResource("6_7fna7")
 light_color = Color(0, 0.48475963, 0.20632803, 1)
 
 [node name="Level Entry9" parent="Level Entries" instance=ExtResource("5_5chmu")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.251503, -1, 0.10306454)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 45, 0, 0)
 coin_cost = 2
 level_scene_path = "res://Levels/level_9.tscn"
 level_name = "Level 9"
 bouncer_image = ExtResource("6_7fna7")
 light_color = Color(0, 0.48475963, 0.20632803, 1)
-
-[node name="Outfit Shop" parent="." instance=ExtResource("11_wx043")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
-shop_items_scenes = Array[PackedScene]([ExtResource("12_drxpg"), ExtResource("12_drxpg")])
