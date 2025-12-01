@@ -25,6 +25,12 @@ var squash_tween: Tween
 @export_category("Setup")
 @export var game_ui: Game_UI
 
+@export_category("Mouth Symbols")
+@export var mouth_default: String = "__"
+@export var mouth_happy: String = "U"
+@export var mouth_surprised: String = "M"
+@export var mouth_jump: String = "O"
+
 var original_scale: Vector3
 
 enum State{
@@ -130,6 +136,8 @@ func _physics_process(delta: float) -> void:
 		hurt_player(5)
 
 func perform_jump(jump_vel: float, mute_player_jump_sound: bool = false):
+	$"MeshInstance3D/Mouth Label".text = mouth_jump
+	$"Mouth Reset Timer".start()
 	velocity.y = jump_vel
 	shake_player_mesh(4.0)
 	if not mute_player_jump_sound:
@@ -146,6 +154,8 @@ func hurt_player(damage: int = 1):
 	damaged.emit()
 	current_health -= damage
 	$MeshInstance3D.set_surface_override_material(0, hurt_material)
+	$"MeshInstance3D/Mouth Label".text = mouth_surprised
+	$"Mouth Reset Timer".start()
 	if current_health <= 0:
 		AudioManager.play_loose_sound()
 		get_tree().call_deferred("reload_current_scene")
@@ -160,6 +170,8 @@ func _on_shockwave_exited(_body: Node3D) -> void:
 	touching_shockwave = false
 
 func get_collected(type: Collectable.Type, ammount: float):
+	$"MeshInstance3D/Mouth Label".text = mouth_happy
+	$"Mouth Reset Timer".start()
 	match type:
 		Collectable.Type.COIN:
 			pass
@@ -203,3 +215,7 @@ func _on_stomp_endlag_timer_timeout() -> void:
 	squash_tween.stop()
 	var reset_size_tween: Tween = get_tree().create_tween()
 	reset_size_tween.tween_property($MeshInstance3D, "scale", Vector3(1.0, 1.0, 1.0), squash_duration)
+
+
+func _on_mouth_reset_timer_timeout() -> void:
+	$"MeshInstance3D/Mouth Label".text = mouth_default

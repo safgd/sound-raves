@@ -24,7 +24,7 @@ grow_vertical = 2
 
 [node name="Game Titel Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Shock Waves"
+text = "Sound Waves"
 label_settings = ExtResource("2_r8s6s")
 horizontal_alignment = 1
 
