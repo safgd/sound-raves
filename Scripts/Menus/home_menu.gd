@@ -8,6 +8,8 @@ func _ready() -> void:
 	$"VBoxContainer/Start Button".grab_focus()
 	if not OS.get_name() == "Windows":
 		$"VBoxContainer/Quit Button".hide()
+	else:
+		$VBoxContainer2/Label.hide()
 
 func _on_start_button_pressed() -> void:
 	AudioManager.play_button_click_sound()
